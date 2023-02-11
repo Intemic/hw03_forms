@@ -17,44 +17,13 @@
             Новый пост
           {% endif %}               
         </div>
-        <div class="card-body">        
-          <form method="post" 
-            {% if not is_edit %}action="{% url 'posts:post_create' %}"
-            {% else %}action="{% url 'posts:post_edit' post.pk %}"{% endif %} 
-          >
+        <div class="card-body">    
+          {% include 'includes/errors.html' %}    
+          
+          <form method="post">
             {% csrf_token %}
-            <div class="form-group row my-3 p-3">
-              <label for="id_text">
-                Текст поста                  
-                <span class="required text-danger" >*</span>                  
-              </label>
-              <textarea name="text" cols="40" rows="10" 
-                class="form-control" required id="id_text">
-                 {{ post.text }}  
-              </textarea>                
-              <small id="id_text-help" class="form-text text-muted">
-                {% if is_edit %} 
-                  Редактируемый текст
-                {% else %}
-                  Текст нового поста
-                {% endif %}                  
-              </small>                  
-            </div>            
-            <div class="form-group row my-3 p-3">
-              <label for="id_group">
-                Группа                  
-              </label>
-              <select name="group" class="form-control" id="id_group">
-                <option value="" selected>{% if post.group %}{{ post.group }}
-                  {% else %} ---------{% endif %}</option>
-                {% for group in groups %}
-                  <option value="{{ group.pk }}">{{ group.title }}</option>
-                {% endfor %}
-              </select>
-              <small id="id_group-help" class="form-text text-muted">
-                Группа, к которой будет относиться пост
-              </small>
-            </div>
+            {% include 'includes/form_out.html' %}
+
             <div class="d-flex justify-content-end">
               <button type="submit" class="btn btn-primary">
                 {% if is_edit %} 

@@ -2,6 +2,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.views import PasswordChangeDoneView
 from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.views import PasswordResetDoneView
 from django.contrib.auth.views import PasswordResetView
 from django.urls import path, reverse_lazy
 
@@ -24,8 +25,18 @@ urlpatterns = [
     ),
     path(
         'password_reset_form/',
-        PasswordResetView.as_view(),
+        PasswordResetView.as_view(
+            template_name='users/password_reset_form.html',
+            success_url=reverse_lazy('auth:password_reset_done')
+        ),
         name='password_reset_form'
+    ),
+    path(
+        'password_reset/done/',
+        PasswordResetDoneView.as_view(
+            template_name='users/password_reset_complete.html',
+        ),
+        name='password_reset_done'
     ),
     path(
         'password_change/',

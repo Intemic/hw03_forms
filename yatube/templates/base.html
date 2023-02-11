@@ -20,13 +20,11 @@
   <body>
     {% include "includes/header.html" %}
     <main> 
-      {% block container %}
-        <div class="container py-5">     
-          {% block content %}
-            Что то тут должно было быть
-          {% endblock %}
-        </div>  
-      {% endblock %}
+      <div class="container py-5">     
+        {% block content %}
+          Что то тут должно было быть
+        {% endblock %}
+      </div>  
     </main>
     {% include "includes/footer.html" %}
   </body>

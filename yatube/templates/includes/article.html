@@ -11,12 +11,7 @@
     </li>
   </ul>
   <p>{{ post.text|linebreaksbr }}</p>
-  {% if author %}
-    <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>
-  {% endif %}
-  {% if not group and not author and post.group %}   
-    <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
-  {% endif %} 
+  <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a><br>
 </article>  
 {% if author and post.group %}   
   <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
