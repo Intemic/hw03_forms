@@ -22,8 +22,9 @@
           
           <form method="post">
             {% csrf_token %}
-            {% include 'includes/form_out.html' %}
-
+            {% for field in form %}
+              {% include 'includes/form_out.html' %}
+            {% endfor %} 
             <div class="d-flex justify-content-end">
               <button type="submit" class="btn btn-primary">
                 {% if is_edit %} 

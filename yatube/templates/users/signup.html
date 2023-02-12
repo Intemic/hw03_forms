@@ -8,12 +8,13 @@
           Зарегистрироваться
         </div>
         <div class="card-body">
-          {% load user_filters %}
           {% include 'includes/errors.html' %}
 
           <form method="post" action="{% url 'users:signup' %}">
             {% csrf_token %}
-            {% include 'includes/form_out.html' %} 
+            {% for field in form %}
+              {% include 'includes/form_out.html' %} 
+            {% endfor %}
             <div class="col-md-6 offset-md-4">
               <button type="submit" class="btn btn-primary">
                 Зарегистрироваться

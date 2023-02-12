@@ -16,8 +16,9 @@
             {% endif %}
           >
             {% csrf_token %}
-            {% include 'includes/form_out.html' %} 
-
+            {% for field in form %}
+              {% include 'includes/form_out.html' %} 
+            {% endfor %}
             <div class="col-md-6 offset-md-4">
               <button type="submit" class="btn btn-primary">
                 Войти

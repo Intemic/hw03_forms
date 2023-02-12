@@ -68,8 +68,6 @@ def post_edit(request: HttpRequest, post_id: int) -> HttpResponse:
         form.save()
         return redirect('posts:post_detail', post_id=post_id)
 
-    form['text'].help_text = 'Редактируемый текст'
-
     context = {
         'is_edit': True,
         'form': form,
