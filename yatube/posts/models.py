@@ -20,13 +20,15 @@ class Post(models.Model):
     )
     pub_date = models.DateTimeField(
         verbose_name='Дата публикации',
-        auto_now_add=True
+        auto_now_add=True,
+        help_text='Дата публикации'
     )
     author = models.ForeignKey(
         User,
         verbose_name='Автор',
         on_delete=models.CASCADE,
-        related_name='posts'
+        related_name='posts',
+        help_text='Автор поста'
     )
     group = models.ForeignKey(
         Group,

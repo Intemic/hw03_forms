@@ -38,5 +38,32 @@ class TestModel(TestCase):
             TestModel.group.title,
             'Некорректное значение текста __str__'
         )
-    
-            
+
+    def test_verbose_name(self):
+        field_verboses = {
+            'text': 'Текст',
+            'pub_date': 'Дата публикации',
+            'author': 'Автор',
+            'group': 'Сообщество',
+        }
+
+        for field, expected_value in field_verboses.items():
+            with self.subTest(field=field):
+                self.assertEqual(
+                    TestCase.post._meta.get_field(field).verbose_name,
+                    expected_value
+                )
+
+    def  test_help_text(self):
+        field_help_texts = {
+            'text': 'Текст поста',
+            'pub_date': 'Дата публикации',
+            'author': 'Автор поста',
+            'group': 'Группа, к которой будет относиться пост',
+        }
+        for field, expected_value in field_help_texts.items():
+            with self.subTest(field=field):
+                self.assertEqual(
+                    TestCase.post._meta.get_field(field).help_text,
+                    expected_value
+                ) 
