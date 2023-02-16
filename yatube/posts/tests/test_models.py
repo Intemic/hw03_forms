@@ -38,4 +38,5 @@ class TestModel(TestCase):
             TestModel.group.title,
             'Некорректное значение текста __str__'
         )
-        
+    
+            
