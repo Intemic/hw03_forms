@@ -17,6 +17,7 @@ class TestForm(TestCase):
         )
 
     def test_create_post(self):
+        """Проверка корректности создания поста."""
         count_post = Post.objects.count()
         form_data = {
             'text': 'Новый пост',
@@ -33,6 +34,7 @@ class TestForm(TestCase):
         )
 
     def test_edit_post(self):
+        """Проверка корректной работы измененеия поста."""
         text_post = 'Изменененый текст'
         form_data = {
             'text': text_post
