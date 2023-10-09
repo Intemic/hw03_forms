@@ -12,11 +12,11 @@
 Клонировать репозиторий и перейти в него в командной строке:
 
 ```
-git clone git@github.com:Intemic/api_final_yatube.git
+git git@github.com:Intemic/hw03_forms.git
 ```
 
 ```
-cd api_final_yatube
+cd hw03_forms
 ```
 
 Cоздать и активировать виртуальное окружение:
